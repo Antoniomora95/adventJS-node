@@ -1,0 +1,23 @@
+{
+  "name": "adventjs-challenge-node",
+  "version": "1.0.0",
+  "description": "The algorithms for my adventJS challenge, but in a node project and using the jest testing package",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage --collectCoverageFrom='algorithms/**.{js,tsx,ts}'",
+    "lint": "npm run lint"
+  },
+  "author": "Antonio Mora",
+  "license": "ISC",
+  "jest": {
+    "collectCoverage": true,
+    "coverageReporters": ["lcov"],
+    "coverageDirectory": "./coverage/"
+  },
+  "devDependencies": {
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "jest": "^29.5.0"
+  }
+}
