@@ -1,6 +1,6 @@
 // https://adventjs.dev/en/challenges/2022/4
 
-function fitsInOneBox(boxes = []) {
+function fitsInOneBox(boxes) {
     boxes.sort((a, b) => a.l - b.l);
     let { l: lp, w: wp, h: hp } = boxes[0];
     for (let i = 1; i < boxes.length; i += 1) {

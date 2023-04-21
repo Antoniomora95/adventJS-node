@@ -5,6 +5,8 @@ const { dryNumber } = require('../algorithms/get-dried-numbers');
 const { countHours } = require('../algorithms/get-extra-hours');
 const { getFibonacciNumber } = require('../algorithms/get-fibonacci-number-dynamic-approach');
 const { getFilesToBackup } = require('../algorithms/get-files-to-backup');
+const { getCompleted } = require('../algorithms/get-fraction-of-task-completed');
+const { carryGifts } = require('../algorithms/get-gifts-bags');
 
 describe('Tests for the different adventjs algorithms', () => {
     test('fitsInOneBox: the smallest box fits into the largest box -> returns true', () => {
@@ -211,5 +213,47 @@ describe('Tests for the different adventjs algorithms', () => {
         expect(
             getFilesToBackup(lastBackup, changes),
         ).toStrictEqual([1, 3]);
+    });
+
+    test('getCompleted 1/3', () => {
+        expect(
+            getCompleted('01:00:00', '03:00:00'),
+        ).toBe(0.3333333333333333);
+    });
+
+    test('getCompleted 1/1', () => {
+        expect(
+            getCompleted('01:00:00', '02:00:00'),
+        ).toBe(0.5);
+    });
+
+    test('carryGift can carry 10', () => {
+        expect(
+            carryGifts(['game', 'bike', 'book', 'toy'], 10),
+        ).toStrictEqual(['game bike', 'book toy']);
+    });
+
+    test('carryGift can carry 7', () => {
+        expect(
+            carryGifts(['game', 'bike', 'book', 'toy'], 7),
+        ).toStrictEqual(['game', 'bike', 'book toy']);
+    });
+
+    test('carryGift can carry 4', () => {
+        expect(
+            carryGifts(['game', 'bike', 'book', 'toy'], 4),
+        ).toStrictEqual(['game', 'bike', 'book', 'toy']);
+    });
+
+    test('carryGift can carry 6', () => {
+        expect(
+            carryGifts(['toy', 'gamme', 'toy', 'bike'], 6),
+        ).toStrictEqual(['toy', 'gamme', 'toy', 'bike']);
+    });
+
+    test('carryGift can carry 6, return no gifts', () => {
+        expect(
+            carryGifts(['toy', 'gamme', 'toy', 'bike'], 1),
+        ).toStrictEqual([]);
     });
 });
